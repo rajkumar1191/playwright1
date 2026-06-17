@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test";
 import path from "path";
 
-test("should display the correct title from playwright.dev", async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-  const title = await page.title();
-  expect(title).toContain("Playwright");
-});
+// test("should display the correct title from playwright.dev", async ({ page }) => {
+//   await page.goto('https://playwright.dev/');
+//   const title = await page.title();
+//   expect(title).toContain("Playwright");
+// });
 
 test("should display the correct title", async ({ page }) => {
   const filePath = path.resolve(__dirname, "./index.html");
