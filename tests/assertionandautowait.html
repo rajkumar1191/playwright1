@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Assertions & Auto-waiting</title>
+    <style>
+      .hidden-box {
+        display: none;
+        color: green;
+        font-weight: bold;
+      }
+      .box-style {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 200px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Assertion and Auto-Waiting</h2>
+    <div id="status-container" class="box-style">
+      Status: <span id="status-text">Processing Request...</span>
+    </div>
+    <button id="update-status-btn">Trigger Status Change</button>
+
+    <div id="success-alert" class="hidden-box">Operation fully completed!</div>
+    <button id="reveal-alert-btn">Show Success Notification</button>
+
+    <hr />
+
+    <button id="checkout-btn">Complete Purchase</button>
+
+    <script>
+      document
+        .getElementById("update-status-btn")
+        .addEventListener("click", () => {
+          setTimeout(() => {
+            document.getElementById("status-text").innerText =
+              "Data Sync Complete";
+          }, 2500);
+        });
+
+      document
+        .getElementById("reveal-alert-btn")
+        .addEventListener("click", () => {
+          setTimeout(() => {
+            document.getElementById("success-alert").style.display = "block";
+          }, 1500);
+        });
+
+      document.getElementById("checkout-btn").addEventListener("click", () => {
+        const btn = document.getElementById("checkout-btn");
+        btn.innerText = "Processing...";
+        btn.disabled = true;
+      });
+    </script>
+  </body>
+</html>
