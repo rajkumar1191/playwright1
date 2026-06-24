@@ -2,18 +2,25 @@
 <html>
   <head>
     <title>Advanced Browser Interactions</title>
+    <style>
+      .section-ctn {
+        margin: 20px 0;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>Advanced Browser Interactions</h1>
 
     <!-- Multi Tab -->
-    <section style="margin: 20px 0; border: 1px solid #ccc; padding: 10px">
+    <section class="section-ctn">
       <h3>Multi-Tab Operations</h3>
       <button id="new-tab-btn">Launch External Status Dashboard</button>
     </section>
 
     <!-- Native Dialog Triggers -->
-    <section style="margin: 20px 0; border: 1px solid #ccc; padding: 10px">
+    <section class="section-ctn">
       <h3>Javascript Modals</h3>
       <button id="alert-btn" onclick="alert('System notification tiggered!')">
         Trigger Alert
@@ -25,7 +32,7 @@
     </section>
 
     <!-- IFrame -->
-    <section style="margin: 20px 0; border: 1px solid #ccc; padding: 10px">
+    <section class="section-ctn">
       <h3>Secure iFrame Document</h3>
 
       <iframe
@@ -45,7 +52,7 @@
     </section>
 
     <!-- Shadow Dom -->
-    <section style="margin: 20px 0; border: 1px solid #ccc; padding: 10px">
+    <section class="section-ctn">
       <h3>Shadow Dom Elements</h3>
       <div id="shadow-host"></div>
     </section>
@@ -63,22 +70,21 @@
             `);
       });
 
-
-      function triggerPrompt(){
-        const name = prompt('Please enter your administrator security code:');
-        if(name){
-            document.getElementById('prompt-result').innerText = `Authorized Code: ${name}`;
+      function triggerPrompt() {
+        const name = prompt("Please enter your administrator security code:");
+        if (name) {
+          document.getElementById("prompt-result").innerText =
+            `Authorized Code: ${name}`;
         }
       }
 
-      const host = document.getElementById('shadow-host');
-      const shadowRoot = host.attachShadow({mode:'open'});
-      shadowRoot.innerHTML= `
+      const host = document.getElementById("shadow-host");
+      const shadowRoot = host.attachShadow({ mode: "open" });
+      shadowRoot.innerHTML = `
       <style>p{color:#ff0055; font-weight:bold}</style>
       <p id="shadow-text">Hidden text inside custom Shadow Root component</p>
       <input type="text" id='shadow-input' placeholder="Type inside shadow Dom" />
       `;
-
     </script>
   </body>
 </html>

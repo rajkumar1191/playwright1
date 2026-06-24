@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>POM(Page Object Model)</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="welcome-message">Welcome Back, Admin</h1>
+
+            <div class="profile-card">
+                <p>Role: QA Eng.</p>
+                <p>Status: Active Session</p>
+            </div>
+
+            <button id="settings-nav-item">Settings</button>
+            <button onclick="triggerLogout()">Logout</button>
+            <div class="status-banner" style="display: none; color: red;">Session Destroyed</div>
+        </div>
+
+        <script>
+            function triggerLogout(){
+                document.querySelector('.status-banner').style.display = 'block';
+                document.getElementById('welcome-message').innerText = 'Goodbye!';
+            }
+        </script>
+    </body>
+</html>
